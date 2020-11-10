@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Update this wine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <h1 class="title"> Update this wine</h1>
+</header>
+<main>
+    <div class="col-12">
+        <form action="#" th:action="@{/wines/update/{id}(id=${wineDto.wineId})}" th:object="${wineDto}" method="post">
+            <div class="form-group">
+                <label for="id">Id</label>
+                <input type="text" th:field="*{wineId}" id="id" class="form-control" th:readonly="${wineDto.wineId}!=null">
+                <span th:if="${#fields.hasErrors('wineId')}" th:errors="*{wineId}" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" th:field="*{wineName}" id="name" class="form-control">
+                <span th:if="${#fields.hasErrors('wineName')}" th:errors="*{wineName}" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" th:field="*{wineYear}" id="year" class="form-control">
+                <span th:if="${#fields.hasErrors('wineYear')}" th:errors="*{wineYear}" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" th:field="*{wineColor}" id="color" class="form-control">
+                <span th:if="${#fields.hasErrors('wineColor')}" th:errors="*{wineColor}" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="taste">Taste</label>
+                <input type="text" th:field="*{wineTaste}" id="taste" class="form-control">
+                <span th:if="${#fields.hasErrors('wineTaste')}" th:errors="*{wineTaste}" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="bottles">Number of bottles</label>
+                <input type="text" th:field="*{wineBottles}" id="bottles" class="form-control">
+                <span th:if="${#fields.hasErrors('wineBottles')}" th:errors="*{wineBottles}" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Update this wine</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

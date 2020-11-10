@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View wine list</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <h1 class="title"> View All Wines</h1>
+</header>
+<main>
+<table class="table">
+    <thead>
+    <tr class="font-weight-bold">
+        <td>#</td>
+        <td>Name</td>
+        <td>Year</td>
+        <td>No of bottles</td>
+        <td colspan="3" class="text-center">Options</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:if="${wineDtos.empty}">
+        <td colspan="6">No wines available</td>
+    </tr>-
+    <tr th:each="wineDto : ${wineDtos}">
+        <td> <span th:text="${wineDto.wineId}" class="font-weight-bold"> Id </span></td>
+        <td> <span th:text="${wineDto.wineName}"> Name </span></td>
+        <td> <span th:text="${wineDto.wineYear}"> Year </span></td>
+        <td> <span th:text="${wineDto.wineBottles}"}> Number of bottles</span> </td>
+        <td> <a th:href="@{/wines/{id}(id=${wineDto.wineId})}" class="btn btn-info">View more details</a></td>
+        <td> <a th:href="@{/wines/view-update/{id}(id=${wineDto.wineId})}" class="btn btn-primary">Edit this wine</a></td>
+        <td> <a th:href="@{/wines/delete/{id}(id=${wineDto.wineId})}" class="btn btn-danger">Delete this wine</a></td>
+    </tr>
+    </tbody>
+</table>
+</main>
+<footer>
+    <a th:href="@{/wines/view-create}" class="btn btn-success"> Create a new wine </a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View wine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <h1 class="title"> Details about wine </h1>
+</header>
+<main>
+    <h3>Id:&nbsp;<small class="text-muted"><span th:text="${wineDto.wineId}">Id</span></small></h3>
+    <h3>Name:&nbsp;<small class="text-muted"><span th:text="${wineDto.wineName}">Name</span></small></h3>
+    <h3>Year:&nbsp;<small class="text-muted"><span th:text="${wineDto.wineYear}">Year</span></small></h3>
+    <h3>Color:&nbsp;<small class="text-muted"><span th:text="${wineDto.wineColor}">Color</span></small></h3>
+    <h3>Taste:&nbsp;<small class="text-muted"><span th:text="${wineDto.wineTaste}">Taste</span></small></h3>
+    <h3>Number of bottles:&nbsp;<small class="text-muted"><span th:text="${wineDto.wineBottles}">Bottles</span></small></h3>
+</main>
+</body>
+</html>
