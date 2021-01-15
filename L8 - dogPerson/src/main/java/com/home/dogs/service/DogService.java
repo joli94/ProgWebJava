@@ -22,19 +22,19 @@ public class DogService {
     }
 
     public Dog get(Long id) {
-       return dogRepository.get(id);
+        return dogRepository.get(id);
 
     }
 
     public Dog create(Dog request) {
-        request.setId(Long.valueOf(dogRepository.getAll().size()) +1);
-        Dog savedDog =  dogRepository.save(request);
+        request.setId(Long.valueOf(dogRepository.getAll().size()) + 1);
+        Dog savedDog = dogRepository.save(request);
         return savedDog;
     }
 
     public Dog update(Dog request) {
         Dog updatedDog = dogRepository.update(request);
-        if(updatedDog != null) {
+        if (updatedDog != null) {
             return updatedDog;
         }
         return null;

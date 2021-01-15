@@ -27,7 +27,7 @@ public class DogRepository {
         return dogList.stream()
                 .filter(person -> person.getId().equals(id))
                 .findAny()
-                .orElseThrow(()-> new EntityNotFoundException(String.format("Dog with identifier %s could not be found" , id)));
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Dog with identifier %s could not be found", id)));
     }
 
     public Dog save(Dog dog) {
@@ -37,7 +37,7 @@ public class DogRepository {
 
     public Dog update(Dog request) {
         Optional<Dog> dogUpdated = Optional.ofNullable(get(request.getId()));
-        if(dogUpdated.isPresent()) {
+        if (dogUpdated.isPresent()) {
             dogList.remove(dogUpdated.get());
             dogList.add(request);
             return request;
@@ -45,7 +45,7 @@ public class DogRepository {
         return null;
     }
 
-    public String delete(Long id ) {
+    public String delete(Long id) {
         Optional<Dog> dogDeleted = Optional.ofNullable(get(id));
         if (dogDeleted.isPresent()) {
             dogList.remove(dogDeleted.get());

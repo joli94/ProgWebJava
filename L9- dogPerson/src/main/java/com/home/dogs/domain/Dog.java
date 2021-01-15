@@ -17,7 +17,7 @@ public class Dog {
 
     @NotNull
     private Long id;
-    @Size(min=3, max=50)
+    @Size(min = 3, max = 50)
     private String name;
     private Integer age;
     private String breed;

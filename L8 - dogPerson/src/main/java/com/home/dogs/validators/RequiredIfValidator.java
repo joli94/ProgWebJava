@@ -9,7 +9,7 @@ public class RequiredIfValidator implements ConstraintValidator<RequiredIf, DogD
 
     @Override
     public boolean isValid(DogDto value, ConstraintValidatorContext constraintValidatorContext) {
-        if(value.getHasOwner()) {
+        if (value.getHasOwner()) {
             return value.getOwner() != null;
         }
 

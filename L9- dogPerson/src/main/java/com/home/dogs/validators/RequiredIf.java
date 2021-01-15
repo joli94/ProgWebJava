@@ -1,4 +1,5 @@
 package com.home.dogs.validators;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Documented;
@@ -16,7 +17,7 @@ public @interface RequiredIf {
 
     String message() default "Invalid request";
 
-    Class<?> [] groups () default {};
+    Class<?>[] groups() default {};
 
-    Class<? extends Payload>[]  payload() default {};
+    Class<? extends Payload>[] payload() default {};
 }

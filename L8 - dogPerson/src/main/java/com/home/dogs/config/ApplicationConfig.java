@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfig {
 
     @Bean
-    public DogMapper dogMapper(){
+    public DogMapper dogMapper() {
         return new DogMapperImpl();
     }
 }

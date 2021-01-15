@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class WineMapper {
-    public Wine convertFromWineDtoToWine(WineDto wineDto){
+    public Wine convertFromWineDtoToWine(WineDto wineDto) {
         return Wine.builder()
                 .bottles(wineDto.getWineBottles())
                 .year(wineDto.getWineYear())
@@ -17,7 +17,7 @@ public class WineMapper {
                 .build();
     }
 
-    public WineDto convertFromWineToWineDto(Wine wine){
+    public WineDto convertFromWineToWineDto(Wine wine) {
         return WineDto.builder()
                 .wineBottles(wine.getBottles())
                 .wineYear(wine.getYear())

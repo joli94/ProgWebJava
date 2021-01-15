@@ -13,32 +13,32 @@ import javax.validation.constraints.Size;
 @Builder
 public class WineDto {
     @NotNull
-    @Size(min=1, max=2)
+    @Size(min = 1, max = 2)
     private String wineBottles;
 
     @NotNull
     @Pattern(regexp = "^[0-9]*$")
-    @Size(min=4, max=4)
+    @Size(min = 4, max = 4)
     private String wineYear;
 
 
     @NotNull
     @Pattern(regexp = "^[a-zA-Z]*$")
-    @Size(min=3, max=10)
+    @Size(min = 3, max = 10)
     private String wineColor;
 
     @NotNull
     @Pattern(regexp = "^[0-9]*$")
-    @Size(min=1, max=2)
+    @Size(min = 1, max = 2)
     private String wineId;
 
     @NotNull
     @Pattern(regexp = "^[a-zA-Z ]*$")
-    @Size(min=3, max=50)
+    @Size(min = 3, max = 50)
     private String wineName;
 
     @NotNull
     @Pattern(regexp = "^[a-zA-Z]*$")
-    @Size(min=3, max=10)
+    @Size(min = 3, max = 10)
     private String wineTaste;
 }

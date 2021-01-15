@@ -13,7 +13,7 @@ public class WineRepository implements InitializingBean {
 
     private final List<Wine> wineList = new ArrayList<>();
 
-    public List<Wine> getAll(){
+    public List<Wine> getAll() {
         return wineList;
     }
 
@@ -34,14 +34,16 @@ public class WineRepository implements InitializingBean {
         wineList.add(wine);
     }
 
-    public void save(Wine wine) { wineList.add(wine); }
+    public void save(Wine wine) {
+        wineList.add(wine);
+    }
 
     public void delete(Wine wine) {
         wineList.remove(wine);
     }
 
     private void setContextForWineRepository() {
-        createAndSave("50","2019", "red", "1", "Pinot Noir", "dry");
+        createAndSave("50", "2019", "red", "1", "Pinot Noir", "dry");
     }
 
     @Override

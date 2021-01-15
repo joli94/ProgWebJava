@@ -14,7 +14,7 @@ import java.util.Optional;
 public class PersonRepository {
     private final List<Person> personList = new ArrayList<>();
 
-    public List<Person> getAll(){
+    public List<Person> getAll() {
         return personList;
     }
 
@@ -22,7 +22,7 @@ public class PersonRepository {
         return personList.stream()
                 .filter(person -> person.getId().equals(id))
                 .findAny()
-                .orElseThrow(()-> new EntityNotFoundException(String.format("Person with identifier %s could not be found", id)));
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Person with identifier %s could not be found", id)));
     }
 
     public Person save(Person person) {
@@ -32,7 +32,7 @@ public class PersonRepository {
 
     public Person update(Person request) {
         Optional<Person> personUpdated = Optional.ofNullable(get(request.getId()));
-        if(personUpdated.isPresent()) {
+        if (personUpdated.isPresent()) {
             personList.remove(personUpdated.get());
             personList.add(request);
             return request;
@@ -40,7 +40,7 @@ public class PersonRepository {
         return null;
     }
 
-    public String delete(Long id ) {
+    public String delete(Long id) {
         Optional<Person> personDeleted = Optional.ofNullable(get(id));
         if (personDeleted.isPresent()) {
             personList.remove(personDeleted.get());

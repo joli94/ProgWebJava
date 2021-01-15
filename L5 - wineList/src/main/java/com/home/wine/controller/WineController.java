@@ -29,27 +29,27 @@ public class WineController {
     }
 
     @GetMapping()
-    public String getAll(Model model){
+    public String getAll(Model model) {
         List<WineDto> wineDtos = wineService.getAllWines();
         model.addAttribute("wineDtos", wineDtos);
         return "view-wines";
     }
 
     @GetMapping("/{id}")
-    public String getWineById(@PathVariable("id") String id, Model model){
+    public String getWineById(@PathVariable("id") String id, Model model) {
         WineDto wineDto = wineService.getWineById(id);
         model.addAttribute("wineDto", wineDto);
         return "view-wine";
     }
 
     @GetMapping("/view-create")
-    public String viewCreate(WineDto wineDto){
+    public String viewCreate(WineDto wineDto) {
         return "add-wine";
     }
 
     @PostMapping("/create")
-    public String createWine(@Valid WineDto wineDto, BindingResult result, Model model){
-        if(result.hasErrors()){
+    public String createWine(@Valid WineDto wineDto, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             return "add-wine";
         }
         wineService.createWine(wineDto);
@@ -66,7 +66,7 @@ public class WineController {
 
     @PostMapping("/update/{id}")
     public String updateWine(@PathVariable String id, @Valid WineDto wineDto, BindingResult result, Model model) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             return "update-wine";
         }
         wineService.updateWine(wineDto);
@@ -75,7 +75,7 @@ public class WineController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteWine(@PathVariable String id, Model model){
+    public String deleteWine(@PathVariable String id, Model model) {
         wineService.delete(id);
         List<WineDto> wineDtos = wineService.getAllWines();
         model.addAttribute("wineDtos", wineDtos);

@@ -18,7 +18,7 @@ public class ExceptionControllerAdvice {
 
     @ExceptionHandler
     protected ResponseEntity<ErrorResponse> handleEntityNotFound(EntityNotFoundException exception) {
-        log.debug("Entiy not found "+ exception);
+        log.debug("Entiy not found " + exception);
 
         return new ResponseEntity<>(ErrorResponse.builder()
                 .code(404)
@@ -28,7 +28,7 @@ public class ExceptionControllerAdvice {
 
     @ExceptionHandler
     protected ResponseEntity<ErrorResponse> handleEntityNotFound(BadRequestException exception) {
-        log.debug("Bad request  "+ exception);
+        log.debug("Bad request  " + exception);
 
         return new ResponseEntity<>(ErrorResponse.builder()
                 .code(400)
@@ -38,7 +38,7 @@ public class ExceptionControllerAdvice {
 
     @ExceptionHandler
     protected ResponseEntity<ErrorResponse> hadleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
-        log.debug("Invalid request  "+ exception);
+        log.debug("Invalid request  " + exception);
 
         String invalidFields = exception.getBindingResult().getFieldErrors()
                 .stream()

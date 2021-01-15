@@ -26,14 +26,14 @@ public class PersonService {
 
     public Person create(Person request) {
         validateRequest(request);
-        request.setId(Long.valueOf(personRepository.getAll().size()) +1);
-        Person savedPerson =  personRepository.save(request);
+        request.setId(Long.valueOf(personRepository.getAll().size()) + 1);
+        Person savedPerson = personRepository.save(request);
         return savedPerson;
     }
 
     public Person update(Person request) {
         Person updatedPerson = personRepository.update(request);
-        if(updatedPerson != null) {
+        if (updatedPerson != null) {
             return updatedPerson;
         }
         return null;
@@ -45,7 +45,7 @@ public class PersonService {
 
     private void validateRequest(Person request) {
         if (personRepository.getAll().stream()
-                .anyMatch(person-> person.getName().equals(request.getName()))) {
+                .anyMatch(person -> person.getName().equals(request.getName()))) {
             throw new BadRequestException("Duplicate person!");
         }
     }

@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class PersonController {
 
     @Autowired
-    private  PersonService personService;
+    private PersonService personService;
 
     @Autowired
     private PersonMapper personMapper;
@@ -43,7 +43,7 @@ public class PersonController {
 
     @PutMapping(path = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonDto> update(@RequestBody PersonDto request) {
-        return new ResponseEntity<>(personMapper.toDto(personService.update(personMapper.toEntity(request))), personService.update(personMapper.toEntity(request))!= null ? HttpStatus.OK: HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(personMapper.toDto(personService.update(personMapper.toEntity(request))), personService.update(personMapper.toEntity(request)) != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping(path = "/delete/{id}")

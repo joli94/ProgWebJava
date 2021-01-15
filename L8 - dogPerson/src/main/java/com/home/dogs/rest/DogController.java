@@ -47,7 +47,7 @@ public class DogController {
 
     @PutMapping(path = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<DogDto> update(@RequestBody DogDto request) {
-        return new ResponseEntity<>(dogMapper.toDto(dogService.update(dogMapper.toEntity(request))), dogService.update(dogMapper.toEntity(request))!= null ? HttpStatus.OK: HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(dogMapper.toDto(dogService.update(dogMapper.toEntity(request))), dogService.update(dogMapper.toEntity(request)) != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping(path = "/delete/{id}")

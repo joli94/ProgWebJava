@@ -21,11 +21,11 @@ public class WineService {
         this.wineRepository = wineRepository;
     }
 
-    public List<WineDto> getAllWines(){
+    public List<WineDto> getAllWines() {
         return wineRepository.getAll().stream().map(wineMapper::convertFromWineToWineDto).collect(Collectors.toList());
     }
 
-    public WineDto getWineById(String id){
+    public WineDto getWineById(String id) {
         return wineMapper.convertFromWineToWineDto(wineRepository.getById(id).get());
     }
 
